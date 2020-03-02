@@ -1,0 +1,130 @@
+:root {
+    --jump-amount: 30%;
+    --jump-amount-negative: -30%;
+    --entry-opacity: 0;
+    --exit-opacity: 1;
+}
+
+.spinner {
+  display: grid;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+
+  @keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes pulse1 {
+    0% {
+      opacity: var(--entry-opacity);
+      transform: translate(var(--jump-amount), 0) rotate(360deg);
+    }
+    100% {
+      opacity: var(--exit-opacity);
+      transform: translate(0) rotate(0);
+    }
+  }
+
+  @keyframes pulse2 {
+    0% {
+      opacity: var(--entry-opacity);
+      transform: translate(var(--jump-amount), var(--jump-amount)) rotate(360deg);
+    }
+    100% {
+      opacity: var(--exit-opacity);
+      transform: translate(0) rotate(0);
+    }
+  }
+
+  @keyframes pulse3 {
+    0% {
+      opacity: var(--entry-opacity);
+      transform: translate(var(--jump-amount-negative), var(--jump-amount)) rotate(360deg);
+    }
+    100% {
+      opacity: var(--exit-opacity);
+      transform: translate(0) rotate(0);
+    }
+  }
+
+  @keyframes pulse4 {
+    0% {
+      opacity: var(--entry-opacity);
+      transform: translate(var(--jump-amount-negative)) rotate(360deg);
+    }
+    100% {
+      opacity: var(--exit-opacity);
+      transform: translate(0) rotate(0);
+    }
+  }
+
+  @keyframes pulse5 {
+    0% {
+      opacity: var(--entry-opacity);
+      transform: translate(var(--jump-amount-negative) / 2, var(--jump-amount-negative)) rotate(360deg);
+    }
+    100% {
+      opacity: var(--exit-opacity);
+      transform: translate(0) rotate(0);
+    }
+  }
+
+  @keyframes pulse6 {
+    0% {
+      opacity: var(--entry-opacity);
+      transform: translate(var(--jump-amount) / 2, var(--jump-amount-negative)) rotate(360deg);
+    }
+    100% {
+      opacity: var(--exit-opacity);
+      transform: translate(0) rotate(0);
+    }
+  }
+
+
+  svg {
+    display: grid;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    .st0 {
+      fill: #8DD0C3;
+      animation-name: pulse1;
+    }
+    .st1 {
+      fill: #8C5CA5;
+      animation-name: pulse2;
+    }
+    .st2 {
+      fill: #B19DBE;
+      animation-name: pulse4;
+    }
+    .st3 {
+      fill: #BA3450;
+      animation-name: pulse3;
+    }
+    .st4 {
+      fill: #41B6D5;
+      animation-name: pulse5;
+    }
+    .st5 {
+      fill: #42215B;
+      animation-name: pulse6;
+    }
+    .st6 {
+      fill: #FFFFFF;
+    }
+
+    .shape {
+      animation-timing-function: ease-out;
+      animation-duration: 0.75s;
+      transform-origin: center;
+    }
+  }
+}
